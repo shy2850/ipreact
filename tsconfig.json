@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "moduleResolution": "node",
+        "maxNodeModuleJsDepth": 1,
+        "module": "esnext",
+        "jsx": "react",
+        "jsxFactory": "h",
+        "sourceMap": true,
+        "target": "es5"
+    },
+    "include": [
+        "test/**.ts",
+        "test/**.tsx",
+        "src/**.ts",
+        "src/**.tsx"
+    ]
+}

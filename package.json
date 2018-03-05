@@ -1,0 +1,44 @@
+{
+  "name": "ipreact",
+  "version": "0.1.0",
+  "description": "connect data-actions of preact-components via immutablejs",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "f2e start",
+    "build": "f2e build",
+    "rollup": "rollup -c",
+    "prepare": "npm run build",
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shy2850/ipreact.git"
+  },
+  "keywords": [
+    "preact",
+    "immutablejs",
+    "f2e-server",
+    "f2e-preact-app"
+  ],
+  "files": [
+    "dist/*",
+    "src/*"
+  ],
+  "module": "src/index.tsx",
+  "author": "shy2850",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shy2850/ipreact/issues"
+  },
+  "homepage": "https://github.com/shy2850/ipreact#readme",
+  "devDependencies": {
+    "f2e-middle-rollup": "^0.3.0",
+    "f2e-server": "^2.8.16",
+    "immutable": "^4.0.0-rc.9",
+    "preact": "^8.2.7",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.3",
+    "rollup-plugin-typescript2": "^0.11.1",
+    "typescript": "^2.7.2"
+  }
+}
