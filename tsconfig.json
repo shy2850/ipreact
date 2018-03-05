@@ -1,13 +1,14 @@
 {
     "compilerOptions": {
-        "allowJs": true,
+        "declaration": true,
+        "outDir": "dist",
         "moduleResolution": "node",
         "maxNodeModuleJsDepth": 1,
         "module": "esnext",
         "jsx": "react",
         "jsxFactory": "h",
         "sourceMap": true,
-        "target": "es5"
+        "target": "esnext"
     },
     "include": [
         "test/**.ts",

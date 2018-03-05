@@ -3,7 +3,7 @@ const commonjs = require('rollup-plugin-commonjs')
 const nodeResolve = require('rollup-plugin-node-resolve')
 
 module.exports = [{
-    input: 'src/index.tsx',
+    input: 'src/ipreact.tsx',
     plugins: [
         typescript(),
         nodeResolve(),

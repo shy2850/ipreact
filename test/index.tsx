@@ -1,6 +1,6 @@
-import IPreact from '../src/index'
+import IPreact from '../src/ipreact'
 import { h, Component, render } from 'preact'
-const { connect, dispatch, getState } = IPreact({
+const { connect, dispatch, getState } = IPreact()({
     name: 'world'
 })
 

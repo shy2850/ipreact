@@ -10,10 +10,6 @@ module.exports = {
     outputFilter: (pathname) => !pathname || /^ipreact/.test(pathname),
     middlewares: [
         {
-            middleware: 'template',
-            test: /\.html?/
-        },
-        {
             middleware: 'rollup'
         }
     ],
