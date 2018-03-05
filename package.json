@@ -1,6 +1,6 @@
 {
   "name": "ipreact",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "connect data-actions of preact-components via immutablejs",
   "main": "dist/index.js",
   "scripts": {
@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/shy2850/ipreact#readme",
   "devDependencies": {
-    "f2e-middle-rollup": "^0.3.0",
+    "f2e-middle-rollup": "^0.3.1",
     "f2e-server": "^2.8.16",
     "immutable": "^4.0.0-rc.9",
     "preact": "^8.2.7",
