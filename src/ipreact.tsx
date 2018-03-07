@@ -1,12 +1,11 @@
-import { fromJS, is, Record } from "immutable"
 import { h, Component } from "preact"
 
 export namespace IPreact {
-    export interface DispatchAction {
-        (action: { (state: Record<any>): Record<any> }, props?): void
+    export interface DispatchAction<T> {
+        (action: { (state: T): T }, props?): void
     }
-    export type Middleware = {
-        (state: Record<any>, nextState: Record<any>, props?): void
+    export interface Middleware<T> {
+        (state: T, nextState: T, props?): void
     }
     export interface Props {
         [x: string]: any
@@ -21,11 +20,11 @@ export namespace IPreact {
         }
     }
 }
-export interface IPreact {
+export interface IPreact<T> {
     getState: {
-        (): Record<any>
+        (): T
     }
-    dispatch: IPreact.DispatchAction
+    dispatch: IPreact.DispatchAction<T>
     connect: IPreact.Connect
 }
 
@@ -40,9 +39,9 @@ export const isSameObject = (obj1, obj2) => {
     return keys1.every(k => obj1[k] === obj2[k])
 }
 
-export default (middlewares?: IPreact.Middleware[]) => (initState = {}): IPreact => {
+export default (middlewares?: IPreact.Middleware<any>[]) => (initState = {}): IPreact<any> => {
 
-    let store = fromJS(initState)
+    let store = initState
     let updateQueue: Function[] = []
 
     const connect: IPreact.Connect = (mapProps, mapDispatch) => (Com) => class extends Component<any, any> {
