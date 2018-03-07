@@ -54,9 +54,9 @@ export default (middlewares?: IPreact.Middleware<any>[]) => (initState = {}): IP
             const res1 = mapProps(props)
             let res2 = {}
             if (mapDispatch) {
-                res2 = mapDispatch({ ...props, ...res1 })
+                res2 = mapDispatch(Object.assign({}, props, res1))
             }
-            return { ...props, ...res1, ...res2 }
+            return Object.assign({}, props, res1, res2)
         }
         constructor(props) {
             super(props)
