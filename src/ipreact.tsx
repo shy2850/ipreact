@@ -1,31 +1,27 @@
-import { h, Component } from "preact"
+import { h, Component, ComponentConstructor, FunctionalComponent } from "preact"
 
-export namespace IPreact {
-    export interface DispatchAction<T> {
-        (action: { (state: T): T }, props?): void
-    }
-    export interface Middleware<T> {
-        (state: T, nextState: T, props?): void
-    }
-    export interface Props {
-        [x: string]: any
-    }
-    export interface Connect {
-        (mapProps?: {
-            (props: IPreact.Props): IPreact.Props
-        }, mapDispatch?: {
-            (props: IPreact.Props): IPreact.Props
-        }): {
-            (com): any
-        }
+type ComponentBase = ComponentConstructor<any, any> | FunctionalComponent<any>
+export interface DispatchAction<T> {
+    (action: { (state: T): T }, props?): void
+}
+export interface Middleware<T> {
+    (state: T, nextState: T, props?): void
+}
+export interface Connect<Props> {
+    (mapProps?: {
+        (props: Props): Props
+    }, mapDispatch?: {
+        (props: Props): Props
+    }): {
+        (com): any
     }
 }
 export interface IPreact<T> {
     getState: {
         (): T
     }
-    dispatch: IPreact.DispatchAction<T>
-    connect: IPreact.Connect
+    dispatch: DispatchAction<T>
+    connect: Connect<any>
 }
 
 export const isSameObject = (obj1, obj2) => {
@@ -39,12 +35,12 @@ export const isSameObject = (obj1, obj2) => {
     return keys1.every(k => obj1[k] === obj2[k])
 }
 
-export default (middlewares?: IPreact.Middleware<any>[]) => (initState = {}): IPreact<any> => {
+export default (middlewares?: Middleware<any>[]) => (initState = {}): IPreact<any> => {
 
     let store = initState
     let updateQueue: Function[] = []
 
-    const connect: IPreact.Connect = (mapProps, mapDispatch) => (Com) => class extends Component<any, any> {
+    const connect: Connect<any> = (mapProps, mapDispatch) => (Com) => class extends Component<any, any> {
         props
         state
         tempProps
