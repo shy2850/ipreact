@@ -5,10 +5,14 @@
         "moduleResolution": "node",
         "maxNodeModuleJsDepth": 1,
         "module": "esnext",
+        "lib": [
+            "es6",
+            "dom"
+        ],
         "jsx": "react",
         "jsxFactory": "h",
         "sourceMap": true,
-        "target": "esnext"
+        "target": "es5"
     },
     "include": [
         "test/**.ts",
