@@ -1,6 +1,6 @@
 {
   "name": "ipreact",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "connect data-actions of preact-components via immutablejs",
   "main": "dist/ipreact.js",
   "scripts": {
@@ -32,17 +32,17 @@
   },
   "homepage": "https://github.com/shy2850/ipreact#readme",
   "devDependencies": {
-    "@types/node": "^9.4.6",
-    "f2e-middle-rollup": "^0.3.1",
-    "f2e-server": "^2.8.16",
-    "immutable": "^4.0.0-rc.9",
-    "memory-tree": "^0.6.3",
-    "rollup-plugin-commonjs": "^8.4.0",
-    "rollup-plugin-node-resolve": "^3.0.3",
+    "@types/node": "^9.6.35",
+    "f2e-middle-rollup": "^0.3.3",
+    "f2e-server": "^2.9.13",
+    "immutable": "^4.0.0-rc.10",
+    "memory-tree": "^0.6.6",
+    "rollup-plugin-commonjs": "^8.4.1",
+    "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-typescript2": "^0.11.1",
-    "typescript": "^2.7.2"
+    "typescript": "^2.9.2"
   },
   "dependencies": {
-    "preact": "^8.2.7"
+    "preact": "^8.3.1"
   }
 }
