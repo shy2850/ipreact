@@ -1,12 +1,12 @@
 {
   "name": "ipreact",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "connect data-actions of preact-components via immutablejs",
   "main": "dist/ipreact.js",
   "scripts": {
     "start": "f2e start",
     "build": "f2e build && tsc",
-    "prepare": "npm run build",
+    "prepublish": "npm run build",
     "test": "npm start"
   },
   "repository": {

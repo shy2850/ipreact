@@ -1,12 +1,13 @@
 import createStore, { IPreact, Connect } from '../src/ipreact'
 import { h, Component, render } from 'preact'
-const { connect, dispatch, getState }: IPreact<{ name: string }> = createStore()({
+const { connect, dispatch, getState }: IPreact<{ name?: string }> = createStore()({
     name: 'world'
 })
 
-const AppComponent = ({ words }) => <h2>{words}</h2>
+interface AppProps { words?: string }
+const AppComponent = ({ words }: AppProps) => <h2>{words}</h2>
 
-const connectApp: Connect<{words: string}> = connect
+const connectApp: Connect<AppProps> = connect
 
 const App = connectApp(() => ({
     words: `hello ${getState().name}!`

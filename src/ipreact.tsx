@@ -1,21 +1,17 @@
 import { h, Component, ComponentConstructor, FunctionalComponent } from "preact"
 
-type ComponentBase = ComponentConstructor<any, any> | FunctionalComponent<any>
+type ComponentBase<T> = ComponentConstructor<T> | FunctionalComponent<T>
 export interface DispatchAction<T> {
     (action: { (state: T): T }, props?): void
 }
 export interface Middleware<T> {
     (state: T, nextState: T, props?): void
 }
-export interface Connect<Props> {
-    (mapProps?: {
-        (props: Props): Props
-    }, mapDispatch?: {
-        (props: Props): Props
-    }): {
-        (com): any
-    }
-}
+export type Connect<T> = (
+    mapProps?: (props: T) => T,
+    mapDispatch?: (props: T) => T
+) => (com: ComponentBase<T>) => ComponentBase<T>
+
 export interface IPreact<T> {
     getState: {
         (): T
@@ -33,6 +29,10 @@ export const isSameObject = (obj1, obj2) => {
         return true
     }
     return keys1.every(k => obj1[k] === obj2[k])
+}
+
+export class IPreactStore<T> {
+
 }
 
 export default (middlewares?: Middleware<any>[]) => (initState = {}): IPreact<any> => {
@@ -72,7 +72,7 @@ export default (middlewares?: Middleware<any>[]) => (initState = {}): IPreact<an
             updateQueue.splice(updateQueue.indexOf(this.tempUpdate), 1)
         }
         render() {
-            return <Com {...this.tempProps}/>
+            return <Com {...this.tempProps} {...this.props}/>
         }
     }
     return {
