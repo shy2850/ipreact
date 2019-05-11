@@ -1,6 +1,8 @@
 # IPreact
 connect data-actions of preact-components
 
+see: [ipreact-for-react](https://github.com/shy2850/ipreact-for-react)
+
 ## Install
 ```
 npm i ipreact
