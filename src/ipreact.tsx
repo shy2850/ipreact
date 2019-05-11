@@ -1,6 +1,5 @@
-import { h, Component, ComponentConstructor, FunctionalComponent } from "preact"
+import { h, Component, ComponentFactory } from "preact"
 
-type ComponentBase<T> = ComponentConstructor<T> | FunctionalComponent<T>
 export interface DispatchAction<T> {
     (action: { (state: T): T }, props?): void
 }
@@ -10,7 +9,7 @@ export interface Middleware<T> {
 export type Connect<T> = (
     mapProps?: (props: T) => T,
     mapDispatch?: (props: T) => T
-) => (com: ComponentBase<T>) => ComponentBase<T>
+) => (com: ComponentFactory<T>) => ComponentFactory<T>
 
 export interface IPreact<T> {
     getState: {
@@ -29,10 +28,6 @@ export const isSameObject = (obj1, obj2) => {
         return true
     }
     return keys1.every(k => obj1[k] === obj2[k])
-}
-
-export class IPreactStore<T> {
-
 }
 
 export default (middlewares?: Middleware<any>[]) => (initState = {}): IPreact<any> => {
