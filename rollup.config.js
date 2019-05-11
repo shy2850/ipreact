@@ -9,12 +9,11 @@ module.exports = [{
         nodeResolve(),
         commonjs()
     ],
-    external: ["preact", "immutable"],
+    external: ["preact"],
     output: {
         name: 'IPreact',
         globals: {
-            preact: 'Preact',
-            immutable: 'Immutable'
+            preact: 'Preact'
         },
         sourcemap: true,
         file: 'ipreact.js',
@@ -31,8 +30,7 @@ module.exports = [{
     output: {
         name: 'App',
         globals: {
-            preact: 'Preact',
-            immutable: 'Immutable'
+            preact: 'Preact'
         },
         sourcemap: true,
         file: 'test/index.js',

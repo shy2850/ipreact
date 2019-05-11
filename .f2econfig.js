@@ -1,6 +1,5 @@
 const { argv } = process
 const build = argv[argv.length - 1] === 'build'
-const { fromJS } = require('immutable')
 
 module.exports = {
     livereload: !build,
